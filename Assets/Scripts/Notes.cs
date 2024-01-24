@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Notes : MonoBehaviour
+{
+    private float beatSpeedTempo = 200f;
+
+    private bool canBePressed = false;
+
+    public KeyCode keyToPress;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        beatSpeedTempo = beatSpeedTempo / 60;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        transform.position -= new Vector3(beatSpeedTempo * Time.deltaTime, 0f, 0f);
+
+        if (Input.GetKeyDown(keyToPress))
+        {
+            if (canBePressed)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "ButtonActive")
+        {
+            canBePressed = true;
+            Debug.Log("cheguei");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "ButtonActive")
+        {
+            canBePressed = false;
+            Debug.Log("sai");
+        }
+    }
+
+}
