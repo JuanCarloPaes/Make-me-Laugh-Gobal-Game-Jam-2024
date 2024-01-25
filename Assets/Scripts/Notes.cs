@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Notes : MonoBehaviour
 {
-    private float beatSpeedTempo = 200f;
+    private float beatSpeedTempo = 240f;
 
     private bool canBePressed = false;
 
@@ -27,6 +27,7 @@ public class Notes : MonoBehaviour
             if (canBePressed)
             {
                 gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
     }
@@ -36,7 +37,7 @@ public class Notes : MonoBehaviour
         if (collision.tag == "ButtonActive")
         {
             canBePressed = true;
-            Debug.Log("cheguei");
+            //Debug.Log("cheguei");
         }
     }
 
@@ -45,7 +46,7 @@ public class Notes : MonoBehaviour
         if (collision.tag == "ButtonActive")
         {
             canBePressed = false;
-            Debug.Log("sai");
+            //Debug.Log("sai");
         }
     }
 

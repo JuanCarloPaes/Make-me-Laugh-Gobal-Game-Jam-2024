@@ -9,6 +9,11 @@ public class SpawnPoint : MonoBehaviour
 
     private void Start()
     {
+        //Instantiate(notePrefab, transform.position, Quaternion.identity);
+    }
+
+    public void SpawnNote()
+    {
         Instantiate(notePrefab, transform.position, Quaternion.identity);
     }
 
