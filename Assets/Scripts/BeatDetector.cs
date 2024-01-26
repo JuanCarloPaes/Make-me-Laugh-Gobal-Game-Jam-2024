@@ -61,7 +61,7 @@ public class BeatDetector : MonoBehaviour
     void GetBeatTimes(float DelayDif, int beatCount)
     {
         //DelayDif = beatTimes[beatCount] - beatTimes[beatCount - 1];
-        Debug.Log(beatIntervalos[beatCount]);
+        //Debug.Log(beatIntervalos[beatCount]);
     }
 
     void MakeBeatIntervList()

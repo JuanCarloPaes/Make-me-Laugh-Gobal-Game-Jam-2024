@@ -41,10 +41,14 @@ public class BeatSpawner : MonoBehaviour
                     if (int.TryParse(line, out int spawnerNumber))
                     {
 
-                        delay = beatDetector.beatIntervalos[BeatDelayNumber];
+                        
+                        if (BeatDelayNumber < beatDetector.beatIntervalos.Count)
+                        {
+                            delay = beatDetector.beatIntervalos[BeatDelayNumber];
+                        }
                         BeatDelayNumber += 1;
 
-                        Debug.Log(delay + " : " + spawnerNumber);
+                        //Debug.Log(delay + " : " + spawnerNumber);
 
                         ActivateSpawner(spawnerNumber - 1);
                     }

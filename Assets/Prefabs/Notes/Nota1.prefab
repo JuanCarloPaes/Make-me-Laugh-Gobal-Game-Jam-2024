@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5643594748308800182}
   - component: {fileID: 8644135080585439271}
   - component: {fileID: 8816158012471969167}
-  - component: {fileID: 6896044506929604784}
+  - component: {fileID: 2242218586254065342}
   m_Layer: 0
   m_Name: Nota1
   m_TagString: Untagged
@@ -98,10 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394a5afb26565094bb7a8ef6be5b1975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatSpeedTempo: 240
   keyToPress: 263
---- !u!61 &6896044506929604784
-BoxCollider2D:
+--- !u!58 &2242218586254065342
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,16 +131,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.3
