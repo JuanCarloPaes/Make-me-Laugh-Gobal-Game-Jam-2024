@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyToPress: 265
+  hitEffect: {fileID: 9021865724211462284, guid: b650d72ae39b51f45906943d39950aaf, type: 3}
+  missEffect: {fileID: 2419282746792869740, guid: b9077b9aff032334fbf0b640d39ef2cb, type: 3}
+  goodEffect: {fileID: 8462927958394381057, guid: 719f60f4863b8724f8baae43aaa5cf6d, type: 3}
+  perfectEffect: {fileID: 6933958465031562348, guid: d6fd1a1a5544b0a478c0b85d45a68a8c, type: 3}
 --- !u!58 &6966228236120371665
 CircleCollider2D:
   m_ObjectHideFlags: 0

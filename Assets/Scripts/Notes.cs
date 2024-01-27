@@ -11,6 +11,8 @@ public class Notes : MonoBehaviour
 
     public KeyCode keyToPress;
 
+    public GameObject hitEffect, missEffect, goodEffect, perfectEffect;
+
     // Class variable to store the spawn time
     //private static float spawnTime;
 
@@ -45,19 +47,19 @@ public class Notes : MonoBehaviour
                 obtained = true;
                 gameObject.SetActive(false);
 
-                if (Mathf.Abs(transform.position.x) < 7.6f)
+                if (Mathf.Abs(transform.position.x) < 6.5f)
                 {
-                    Debug.Log("Hit");
+                    Instantiate(hitEffect, transform.position, Quaternion.identity);
                     GameManager.instance.NormalHit();
                 }
-                else if (Mathf.Abs(transform.position.x) < 7.9f)
+                else if (Mathf.Abs(transform.position.x) < 6.75f)
                 {
-                    Debug.Log("Good");
+                    Instantiate(goodEffect, transform.position, Quaternion.identity);
                     GameManager.instance.GoodHit();
                 }
                 else
                 {
-                    Debug.Log("Perfect");
+                    Instantiate(perfectEffect, transform.position, Quaternion.identity);
                     GameManager.instance.PerfectHit();
                 }
 
@@ -92,6 +94,7 @@ public class Notes : MonoBehaviour
         if (collision.tag == "ButtonActive" && !obtained)
         {
             canBePressed = false;
+            Instantiate(missEffect, transform.position, Quaternion.identity);
             GameManager.instance.NoteMiss();
             // You can choose to resume the game when the object exits the trigger
             // Or you can let it stay paused, depending on your requirements
