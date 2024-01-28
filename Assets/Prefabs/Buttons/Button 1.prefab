@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultImage: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   pressedImage: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  keyToPress: 263
+  keyToPress: 100
 --- !u!61 &7784150448543486981
 BoxCollider2D:
   m_ObjectHideFlags: 0

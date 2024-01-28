@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394a5afb26565094bb7a8ef6be5b1975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 104
+  keyToPress: 100
   hitEffect: {fileID: 9021865724211462284, guid: b650d72ae39b51f45906943d39950aaf, type: 3}
   missEffect: {fileID: 2419282746792869740, guid: b9077b9aff032334fbf0b640d39ef2cb, type: 3}
   goodEffect: {fileID: 8462927958394381057, guid: 719f60f4863b8724f8baae43aaa5cf6d, type: 3}

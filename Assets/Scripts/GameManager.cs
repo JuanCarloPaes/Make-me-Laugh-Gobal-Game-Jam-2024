@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     private BeatDetector beatDetectorScript; // Reference to the BeatDetector script
 
     private bool isPaused = false;
+    public GameObject pauseMenu;
 
     public int specialModeCounter = 0;
     public bool specialModeBool = false;
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
         comboText.text = "Combo : 1x";
         gameOver = false;
         currentMultiplier = 1;
+
+        ResumeGame();
 
         totalNotes = theBS.beatDetector.beatTimes.Count;
 
@@ -144,7 +147,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Check for pause/resume input
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && startPlaying)
         {
             if (isPaused)
             {
@@ -193,7 +196,6 @@ public class GameManager : MonoBehaviour
                 //Debug.Log(tempoINicialOficial);
                 StartMusicAfterDelay();
                 animEstatua.SetBool("comecoJogo", true);
-                animProta.SetBool("comecar", true );
                 startPlaying = true;
                 //theBS.CanStart = true;
                 theBS.StartSpawning();
@@ -228,6 +230,7 @@ public class GameManager : MonoBehaviour
     {
         
         yield return new WaitForSeconds(delay);
+        animProta.SetBool("comecar", true);
         theMusic.UnPause();
 
     }
@@ -303,14 +306,14 @@ public class GameManager : MonoBehaviour
     {
         isPaused = true;
         theMusic.Pause();
-        ShowMenu(); // mostra só o menu FINAL
+        pauseMenu.SetActive(isPaused);
         Time.timeScale = 0f; // Pause time scale
     }
 
     public void ResumeGame()
     {
         isPaused = false;
-        ResultsMenu.SetActive(false); // esconde menu FINAL
+        pauseMenu.SetActive(isPaused);
         theMusic.UnPause();
         Time.timeScale = 1f; // Resume time scale
     }
