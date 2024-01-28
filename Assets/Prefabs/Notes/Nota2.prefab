@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12, y: -2.1690667, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -963119991
   m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_SortingOrder: 21
+  m_Sprite: {fileID: 21300000, guid: eec6d192673c04a419cff9d28c409adb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394a5afb26565094bb7a8ef6be5b1975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 264
+  keyToPress: 106
   hitEffect: {fileID: 9021865724211462284, guid: b650d72ae39b51f45906943d39950aaf, type: 3}
   missEffect: {fileID: 2419282746792869740, guid: b9077b9aff032334fbf0b640d39ef2cb, type: 3}
   goodEffect: {fileID: 8462927958394381057, guid: 719f60f4863b8724f8baae43aaa5cf6d, type: 3}
@@ -135,6 +135,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.03}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 1.26

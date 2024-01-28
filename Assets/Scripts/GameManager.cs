@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
     public bool specialModeBool = false;
     private SpecialModeObj specialModeObjScript;
 
+    public Animator animProta;
+    public Animator animEstatua;
+
     //private float tempoINicialOficial;
     //private float startTime;
 
@@ -120,9 +123,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (specialModeCounter >= 20 && !specialModeBool)
+        if (specialModeCounter >= 1000 && !specialModeBool)
         {
-            specialModeCounter = 20;
+            specialModeCounter = 1000;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 specialModeBool = true;
@@ -189,8 +192,10 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("Total Time: " + totalTime);
                 //Debug.Log(tempoINicialOficial);
                 StartMusicAfterDelay();
+                animEstatua.SetBool("comecoJogo", true);
+                animProta.SetBool("comecar", true );
                 startPlaying = true;
-                theBS.CanStart = true;
+                //theBS.CanStart = true;
                 theBS.StartSpawning();
             }
         }
@@ -294,7 +299,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         isPaused = true;
         theMusic.Pause();
@@ -302,7 +307,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f; // Pause time scale
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         isPaused = false;
         ResultsMenu.SetActive(false); // esconde menu FINAL
@@ -327,5 +332,6 @@ public class GameManager : MonoBehaviour
 
         percentageHitCount.text = "" + percentageHit.ToString("F2") + "%";
     }
+
 
 }

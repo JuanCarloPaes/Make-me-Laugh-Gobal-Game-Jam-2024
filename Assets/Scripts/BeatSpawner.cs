@@ -5,43 +5,38 @@ using System.IO;
 
 public class BeatSpawner : MonoBehaviour
 {
-    public string filePath = "Assets/Resources/Lvl 1/lvl1.txt"; // Adjust the file path as needed
+    // Reference to the text file
+    public TextAsset filePath; // Drag and drop the text file here in the Unity Editor
     public List<GameObject> spawners; // List of spawner game objects
     public BeatDetector beatDetector; // Beat Timings (list and such)
 
     public float InitDelay = 1f;
 
-    public bool CanStart = false;
-
     private int BeatDelayNumber = 0;
-
 
     public void StartSpawning()
     {
-        StartCoroutine(ReadTextFileWithDelay(filePath, InitDelay));
+        StartCoroutine(ReadTextFileWithDelay(InitDelay));
     }
 
-    IEnumerator ReadTextFileWithDelay(string path, float delay)
+    IEnumerator ReadTextFileWithDelay(float delay)
     {
         List<string> itemsList = new List<string>();
 
-        // Check if the file exists
-        if (File.Exists(path))
+        // Check if the filePath is not null
+        if (filePath != null)
         {
-            // Use StreamReader to read one line at a time
-            using (StreamReader reader = new StreamReader(path))
+            // Use StringReader to read the text content of the TextAsset
+            using (StringReader reader = new StringReader(filePath.text))
             {
-                while (!reader.EndOfStream)
+                while (reader.Peek() != -1)
                 {
-
                     string line = reader.ReadLine();
                     //Debug.Log("Read line: " + line);
 
                     // Convert the line to an integer
                     if (int.TryParse(line, out int spawnerNumber))
                     {
-
-                        
                         if (BeatDelayNumber < beatDetector.beatIntervalos.Count)
                         {
                             delay = beatDetector.beatIntervalos[BeatDelayNumber];
@@ -72,7 +67,7 @@ public class BeatSpawner : MonoBehaviour
         }
         else
         {
-            Debug.LogError("File not found at path: " + path);
+            Debug.LogError("Text file not assigned. Please assign the text file in the inspector.");
         }
     }
 
@@ -82,8 +77,6 @@ public class BeatSpawner : MonoBehaviour
         if (spawnerNumber >= 0 && spawnerNumber < spawners.Count)
         {
             // Activate the corresponding spawner
-            spawners[spawnerNumber].SetActive(true);
-            // Call SpawnNote method from the activated spawner
             spawners[spawnerNumber].GetComponent<SpawnPoint>().SpawnNote();
 
             // Optionally, you can deactivate other spawners if needed
@@ -91,7 +84,7 @@ public class BeatSpawner : MonoBehaviour
             {
                 if (i != spawnerNumber)
                 {
-                    spawners[i].SetActive(false);
+                    //spawners[i].SetActive(false);
                 }
             }
         }
@@ -100,7 +93,4 @@ public class BeatSpawner : MonoBehaviour
             Debug.LogError("Invalid spawner number: " + spawnerNumber);
         }
     }
-
-
-
 }
